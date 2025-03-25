@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "LANG=en_US.UTF-8" | tee -a /etc/environment
+echo "LC_ALL=en_US.UTF-8" | tee -a /etc/environment
+echo "LC_CTYPE=en_US.UTF-8" | tee -a /etc/environment
+echo "LANGUAGE=en_US.UTF-8" | tee -a /etc/environment
+source /etc/environment
+
 # Thư mục lưu trữ file sao lưu
 BACKUP_DIR="/backup/proxmox_configs"  # Thay đổi đường dẫn theo nhu cầu
 CONFIG_BACKUP_DIR="$BACKUP_DIR/PROXMOX_CONFIG_BACKUP"
