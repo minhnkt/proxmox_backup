@@ -100,7 +100,6 @@ EOF
 restore_function() {
     local start_time=$(date +%s)
 
-    # Hiển thị thông báo nhấp nháy, sau đó giữ nguyên trong khung
     echo -e "$(tput setaf 1)$(tput blink)+-------------------------------------------------+" # Màu đỏ + nhấp nháy
     echo -e "| ĐẢM BẢO FILE SAO LƯU ĐÃ ĐƯỢC ĐẶT TRONG         |"
     echo -e "| $CONFIG_BACKUP_DIR TRƯỚC KHI KHÔI PHỤC!        |"
@@ -311,7 +310,7 @@ EOF
     echo -e "\n$LAST_REPORT"
 }
 
-# Hàm sao lưu LXC/VM trực tiếp lên cloud với retry khi quota exceeded
+# Hàm sao lưu LXC/VM trực tiếp lên cloud với sửa lỗi locale
 backup_lxc_vm() {
     local start_time=$(date +%s)
 
@@ -455,10 +454,15 @@ EOF
     local total_size_mb=0
     local total_duration=0
     local MAX_RETRIES=3
-    local RETRY_DELAY=90  # Thời gian chờ giữa các lần thử kết nối lại
+    local RETRY_DELAY=60
 
     spinner &
     SPINNER_PID=$!
+
+    # Thiết lập locale tạm thời để tránh cảnh báo
+    export LC_ALL="en_US.UTF-8"
+    export LANG="en_US.UTF-8"
+    export LC_CTYPE="en_US.UTF-8"
 
     for TARGET in "${targets[@]}"; do
         TARGET_ID=$(echo "$TARGET" | awk '{print $1}')
