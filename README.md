@@ -69,6 +69,7 @@ Thời gian thực hiện.
 Số lượng tệp sao lưu hiện có trong thư mục.
 3 tệp/thư mục gốc lớn nhất (dựa trên du -h của các đường dẫn đã sao lưu).
 Ví dụ:
+
 +------------------------------------------+
 | Báo cáo sao lưu cấu hình Proxmox         |
 +------------------------------------------+
@@ -82,9 +83,13 @@ Ví dụ:
 | /root/ (15M)                             |
 | /etc/pve (10M)                           |
 +------------------------------------------+
-Lưu ý
+
+Lưu ý:
+
 Không bao gồm dữ liệu LXC/VM: Chức năng này chỉ sao lưu cấu hình, không bao gồm dữ liệu thực tế của các container LXC hoặc máy ảo VM (như ổ đĩa, snapshot). Dữ liệu đó được xử lý trong chức năng "Sao lưu LXC/VM trực tiếp lên Cloud Storage" bằng vzdump.
+
 Tùy chỉnh: Bạn có thể thay đổi $BACKUP_DIR hoặc chỉnh sửa các đường dẫn sao lưu trong mã nếu cần thêm/bớt thư mục.
+
 Kích thước: Nếu chọn sao lưu đầy đủ /var/lib/, tệp sao lưu có thể rất lớn tùy thuộc vào dữ liệu trên hệ thống.
 
 ######################
