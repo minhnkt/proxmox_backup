@@ -15,13 +15,17 @@ Chọn chức năng:
 Những gì được sao lưu trong "Sao lưu cấu hình Proxmox"
 Cấu hình Proxmox chính (/etc/pve):
 Thư mục /etc/pve chứa các tệp cấu hình liên quan đến cụm (cluster), LXC, VM, và các thiết lập quản lý khác của Proxmox.
+
 Được nén thành tệp pve.tar trong thư mục tạm (TEMP_DIR).
+
 Cấu hình mạng (/etc/network/interfaces, /etc/hosts, /etc/hostname, /etc/resolv.conf):
+
 Các tệp cấu hình mạng cơ bản của hệ thống, bao gồm:
 /etc/network/interfaces: Cấu hình giao diện mạng (ví dụ: bridge, VLAN, IP).
 /etc/hosts: Danh sách ánh xạ tên máy chủ với địa chỉ IP.
 /etc/hostname: Tên máy chủ của hệ thống.
 /etc/resolv.conf: Cấu hình DNS.
+
 Được nén thành tệp network.tar.
 Thư mục gốc của người dùng root (/root/):
 Sao lưu toàn bộ thư mục /root/ (thư mục gốc của người dùng root), bao gồm các tệp cấu hình cá nhân, khóa SSH (nếu có), hoặc các script tùy chỉnh.
