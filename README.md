@@ -31,23 +31,29 @@ Thư mục gốc của người dùng root (/root/):
 Sao lưu toàn bộ thư mục /root/ (thư mục gốc của người dùng root), bao gồm các tệp cấu hình cá nhân, khóa SSH (nếu có), hoặc các script tùy chỉnh.
 Sử dụng tùy chọn --one-file-system để chỉ sao lưu trong cùng hệ thống tệp, tránh bao gồm các thư mục gắn ngoài.
 Được nén thành tệp root.tar.
+
 Thư mục /var/lib/ (tùy chọn đầy đủ hoặc loại trừ):
 Người dùng được hỏi: "Bạn muốn sao lưu đầy đủ /var/lib/ (không loại trừ) không? (y/N, mặc định là N)".
 Nếu chọn "y" (có):
 Sao lưu toàn bộ /var/lib/, bao gồm dữ liệu của các dịch vụ như pve-cluster, vz (LXC), hoặc các dịch vụ khác (nếu có).
 Được nén thành varlib.tar.
+
 Nếu chọn "N" (mặc định):
+
 Chỉ sao lưu các thư mục liên quan trực tiếp đến Proxmox:
 /var/lib/pve: Dữ liệu cấu hình của Proxmox.
 /var/lib/pve-cluster: Dữ liệu cụm (nếu Proxmox chạy trong cụm).
+
 Loại trừ:
 /var/lib/vz: Dữ liệu thực tế của LXC/VM (rất lớn, thường được xử lý riêng bằng vzdump trong chức năng khác).
 /var/lib/docker: Dữ liệu Docker (nếu cài đặt).
 /var/lib/mysql: Cơ sở dữ liệu MySQL (nếu có).
 Được nén thành varlib.tar.
+
 Thư mục spool (/var/spool/):
 Sao lưu thư mục /var/spool/, chứa dữ liệu tạm thời như hàng đợi email hoặc công việc in ấn (nếu có).
 Được nén thành spool.tar.
+
 Quy trình sao lưu
 Các tệp tạm (pve.tar, network.tar, root.tar, varlib.tar, spool.tar) được tạo trong thư mục tạm (TEMP_DIR).
 Sau đó, tất cả các tệp .tar này được nén lại thành một tệp duy nhất:
